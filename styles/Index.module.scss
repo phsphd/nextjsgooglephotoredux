@@ -1,0 +1,257 @@
+// styles/Index.module.scss - Add these new styles
+
+// Existing container styles...
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+// Album Header Styles
+.albumHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e1e5e9;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
+.albumInfo {
+  flex: 1;
+  text-align: center;
+  
+  h1 {
+    margin: 0 0 5px 0;
+    font-size: 2rem;
+    color: #333;
+    font-weight: 600;
+    
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.photoCount {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: #f8f9fa;
+    border-color: #ccc;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+}
+
+.refreshButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid #4285f4;
+  border-radius: 6px;
+  background: #4285f4;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover:not(:disabled) {
+    background: #3367d6;
+    border-color: #3367d6;
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+}
+
+// Error State Styles
+.errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 40px 20px;
+}
+
+.errorContent {
+  text-align: center;
+  max-width: 400px;
+  
+  h2 {
+    color: #d32f2f;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+  }
+  
+  p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+}
+
+.errorActions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.retryButton {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  background: #4285f4;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  
+  &:hover {
+    background: #3367d6;
+  }
+}
+
+// Empty State Styles
+.emptyState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  padding: 40px 20px;
+}
+
+.emptyContent {
+  text-align: center;
+  max-width: 400px;
+  
+  h2 {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+  }
+  
+  p {
+    color: #888;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+}
+
+// Refresh Indicator Styles
+.refreshIndicator {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(66, 133, 244, 0.9);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  z-index: 1000;
+  animation: slideInFromRight 0.3s ease;
+  
+  @media (max-width: 768px) {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// Loading States
+.loadingOverlay {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+  }
+}
+
+// Enhanced responsive styles
+@media (max-width: 1024px) {
+  .container {
+    max-width: 900px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .albumHeader {
+    padding: 15px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .albumHeader {
+    .albumInfo h1 {
+      font-size: 1.2rem;
+    }
+  }
+  
+  .errorContent h2,
+  .emptyContent h2 {
+    font-size: 1.2rem;
+  }
+}

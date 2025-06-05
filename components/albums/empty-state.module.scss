@@ -1,0 +1,80 @@
+// components/albums/empty-state.module.scss
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .icon {
+    margin-bottom: 24px;
+    color: var(--text-tertiary, #999);
+    opacity: 0.6;
+    
+    svg {
+      width: 64px;
+      height: 64px;
+    }
+  }
+  
+  .title {
+    margin: 0 0 16px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary, #333);
+  }
+  
+  .message {
+    margin: 0 0 32px 0;
+    color: var(--text-secondary, #666);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  
+  .createButton {
+    padding: 14px 28px;
+    background: var(--primary-color, #4285f4);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background: var(--primary-hover, #3367d6);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(66, 133, 244, 0.3);
+    }
+    
+    &:focus {
+      outline: 2px solid var(--primary-color, #4285f4);
+      outline-offset: 2px;
+    }
+  }
+  
+  // Dark theme
+  [data-theme="dark"] {
+    .title {
+      color: var(--text-primary, #ffffff);
+    }
+    
+    .message {
+      color: var(--text-secondary, #cccccc);
+    }
+    
+    .icon {
+      color: var(--text-tertiary, #888);
+    }
+  }
+  
+  // Reduced motion
+  @media (prefers-reduced-motion: reduce) {
+    .createButton:hover {
+      transform: none;
+    }
+  }
